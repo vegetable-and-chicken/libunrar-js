@@ -1,0 +1,22 @@
+<script src="libunrar.js"></script>
+<script>
+  (function() {
+      'use strict';
+
+      //alert(1);
+      debugger;
+      var unrared;
+      GM_xmlhttpRequest({
+          method:'GET',
+          url:"https://paste.c-net.org/SicilyWashed",
+          onload:function(x){
+              //debugger;
+              unrared=readRARContent([{name: 'test.rar', content:new Uint8Array(x.response)}]);
+          },
+          responseType: 'arraybuffer'
+      });
+
+
+      // Your code here...
+  })();
+</script>
