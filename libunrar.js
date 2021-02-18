@@ -1428,7 +1428,7 @@ __ATINIT__.push(
     },
   }
 );
-var memoryInitializer = "libunrar.js.mem";
+var memoryInitializer = "http://vegetable-and-chicken.github.io/libunrar-js/libunrar.js.mem";
 var tempDoublePtr = Runtime.alignMemory(allocate(12, "i8", ALLOC_STATIC), 8);
 assert(tempDoublePtr % 8 == 0);
 function copyTempFloat(ptr) {
