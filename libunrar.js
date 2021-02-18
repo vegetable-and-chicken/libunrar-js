@@ -1428,7 +1428,8 @@ __ATINIT__.push(
     },
   }
 );
-var memoryInitializer = "http://vegetable-and-chicken.github.io/libunrar-js/libunrar.js.mem";
+var memoryInitializer =
+  "http://vegetable-and-chicken.github.io/libunrar-js/libunrar.js.mem";
 var tempDoublePtr = Runtime.alignMemory(allocate(12, "i8", ALLOC_STATIC), 8);
 assert(tempDoublePtr % 8 == 0);
 function copyTempFloat(ptr) {
@@ -7108,23 +7109,8 @@ var Browser = {
     }
   },
   xhrLoad: function (url, onload, onerror) {
-	debugger;
-	GM_xmlhttpRequest({
-		method:'GET',
-		url:url,
-		responseType:"arraybuffer",
-		onload:function xhr_onload(response) {
-			if (response.status == 200 || (response.status == 0 && response.response)) {
-			  onload(response.response);
-			} else {
-			  onerror();
-			}
-		  },
-		onerror:onerror
+    debugger;
 
-	});
-	return;
-	
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.responseType = "arraybuffer";
@@ -7137,6 +7123,24 @@ var Browser = {
     };
     xhr.onerror = onerror;
     xhr.send(null);
+    return;
+    GM_xmlhttpRequest({
+      method: "GET",
+      url: url,
+      responseType: "arraybuffer",
+      onload: function xhr_onload(response) {
+        if (
+          response.status == 200 ||
+          (response.status == 0 && response.response)
+        ) {
+          onload(response.response);
+        } else {
+          onerror();
+        }
+      },
+      onerror: onerror,
+    });
+    return;
   },
   asyncLoad: function (url, onload, onerror, noRunDep) {
     Browser.xhrLoad(
