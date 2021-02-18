@@ -7,7 +7,7 @@
       debugger;
       var unrared;
       var x=new XMLHttpRequest();
-      x.open("GET", "https://paste.c-net.org/SicilyWashed", true);
+      x.open("GET", "test.rar", true);
       x.responseType = 'blob';
       x.onload=function(e){
         unrared=readRARContent([{name: 'test.rar', content:new Uint8Array(x.response)}]);
