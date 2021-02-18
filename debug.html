@@ -8,7 +8,7 @@
       var unrared;
       var x=new XMLHttpRequest();
       x.open("GET", "test.rar", true);
-      x.responseType = 'blob';
+      x.responseType = 'arraybuffer';
       x.onload=function(e){
         unrared=readRARContent([{name: 'test.rar', content:new Uint8Array(x.response)}]);
       }
